@@ -19,6 +19,7 @@ public class Users {
 	@GeneratedValue(generator="system-uuid")
 	@GenericGenerator(name="system-uuid", strategy = "uuid")
 	public String ID;
+	
 	@NotNull
 	public String name;
 	
@@ -27,6 +28,7 @@ public class Users {
 	@Column(unique = true)
 	@UniqueMobileNumber(message = "Number Already exist")
 	public String contactNumber;
+	
 	@NotNull
 	public String user_Type;
 	
@@ -58,6 +60,7 @@ public class Users {
 	
 	@NotNull
 	public String password;
+	
 	public String getID() {
 		return ID;
 	}

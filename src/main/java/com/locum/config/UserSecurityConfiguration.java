@@ -1,4 +1,4 @@
-package com.locum.config;
+/*package com.locum.config;
 
 import javax.sql.DataSource;
 
@@ -40,20 +40,21 @@ public class UserSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return jdbcUserDetailsManager;
 	}
 
-	/*@Override
+	@Override
 	public void configure(WebSecurity web) throws Exception {
 		System.out.println("In configure method");
 		web.ignoring().antMatchers("/addUser/**");
-	}*/
+	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		System.out.println("In csrf method");
-		/*http.authorizeRequests().antMatchers("/register").permitAll().antMatchers("/welcome")
+		http.authorizeRequests().antMatchers("/register").permitAll().antMatchers("/welcome")
 				.hasAnyRole("USER", "ADMIN").antMatchers("/getEmployees").hasAnyRole("USER", "ADMIN")
 				.antMatchers("/addNewEmployee").hasAnyRole("ADMIN").anyRequest().authenticated().and().formLogin()
-				.loginPage("/login").permitAll().and().logout().permitAll();*/
+				.loginPage("/login").permitAll().and().logout().permitAll();
 
 		http.csrf().disable();
 	}
 }
+*/
