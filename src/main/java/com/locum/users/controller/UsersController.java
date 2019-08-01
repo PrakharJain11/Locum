@@ -3,10 +3,10 @@ package com.locum.users.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-/*import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;*/
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,8 +51,8 @@ public class UsersController {
 		//User user = new User(user1.getContact_Number(),encodedPassword,authorities);
 		
 		//jdbcUserDetailManager.createUser(user);
-		//String encodePassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
-		//user.setPassword(encodePassword);
+		String encodePassword = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
+		user.setPassword(encodePassword);
 		
 		Users savedUser = userService.addUser(user);
 		
