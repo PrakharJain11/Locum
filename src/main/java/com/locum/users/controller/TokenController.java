@@ -1,29 +1,33 @@
-/*package com.locum.users.controller;
+package com.locum.users.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.locum.security.JwtGenerator;
+import com.locum.users.model.Users;
 
 @RestController
 @RequestMapping("/token")
 public class TokenController {
 	
-	private TokenController jwtGenerator;
+	private JwtGenerator jwtGenerator;
 	
-	@PostMapping
-	public String generate(@PathVariable final String username)
-	{
-		//JwtGenerator jwtGenerator = new JwtGenerator();
-		return jwtGenerator.generate(username);
-	}
+	public TokenController(JwtGenerator jwtGenerator) {
+        this.jwtGenerator = jwtGenerator;
+    }
 
-	public TokenController(TokenController jwtGenerator) {
-		this.jwtGenerator = jwtGenerator;
-		// TODO Auto-generated constructor stub
-	}
+    @PostMapping
+    public String generate(@RequestBody final Users jwtUser, HttpServletResponse response) {
+    	response.setHeader("Token", jwtGenerator.generate(jwtUser));
+    	//request.getHeaders().add("Authorization", "Bearer " + jwtGenerator.generate(jwtUser));
+    	
+        return jwtGenerator.generate(jwtUser);
+
+    }
 }
-*/

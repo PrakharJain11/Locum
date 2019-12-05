@@ -36,6 +36,7 @@ public class UniqueMobileNumberValidator implements ConstraintValidator<UniqueMo
 			return true;
 		}
 		System.out.println("OutsideNull");
+		System.out.println("Hi-------->"+userRepository.findByContactNumber(value) == null);
 		return userRepository.findByContactNumber(value) == null;
 	}
 	

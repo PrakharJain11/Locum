@@ -1,4 +1,4 @@
-/*package com.locum.users.model;
+package com.locum.users.model;
 
 import java.util.Collection;
 import java.util.List;
@@ -8,11 +8,16 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 
 public class JwtUserDetails  implements UserDetails{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String userName;
     private String token;
     private String id;
     private Collection<? extends GrantedAuthority> authorities;
-    
+
+
     public JwtUserDetails(String userName, String id, String token, List<GrantedAuthority> grantedAuthorities) {
 
         this.userName = userName;
@@ -69,7 +74,5 @@ public class JwtUserDetails  implements UserDetails{
     public String getId() {
         return id;
     }
-    
-    
+
 }
-*/

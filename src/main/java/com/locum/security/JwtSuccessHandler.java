@@ -1,4 +1,4 @@
-/*package com.locum.security;
+package com.locum.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -14,4 +14,3 @@ public class JwtSuccessHandler implements AuthenticationSuccessHandler{
         System.out.println("Successfully Authentication");
     }
 }
-*/

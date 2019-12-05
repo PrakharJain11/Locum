@@ -1,4 +1,4 @@
-/*package com.locum.security;
+package com.locum.security;
 
 import org.springframework.stereotype.Component;
 
@@ -26,6 +26,7 @@ public class JwtValidator {
             jwtUser.setName(body.getSubject());
             jwtUser.setID((String) body.get("userId"));
             //jwtUser.setRole((String) body.get("role"));
+            jwtUser.setUser_Type((String) body.get("role"));
         }
         catch (Exception e) {
             System.out.println(e);
@@ -34,4 +35,3 @@ public class JwtValidator {
         return jwtUser;
     }
 }
-*/

@@ -1,4 +1,4 @@
-/*package com.locum.security;
+package com.locum.security;
 
 import java.io.IOException;
 
@@ -20,14 +20,14 @@ public class JwtAuthenticationTokenFilter extends AbstractAuthenticationProcessi
 	
 	public JwtAuthenticationTokenFilter() {
 		// TODO Auto-generated constructor stub
-		super("**//**");
+		super("/rest/**");
 	}
 	
 	@Override
     public Authentication attemptAuthentication(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws AuthenticationException, IOException, ServletException {
 
         String header = httpServletRequest.getHeader("Authorisation");
-
+        //System.out.println("JWT Token in Authentication Filter: "+header.substring(6));
 
         if (header == null || !header.startsWith("Token ")) {
             throw new RuntimeException("JWT Token is missing");
@@ -47,4 +47,3 @@ public class JwtAuthenticationTokenFilter extends AbstractAuthenticationProcessi
     }
 
 }
-*/

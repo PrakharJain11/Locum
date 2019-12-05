@@ -1,4 +1,4 @@
-/*package com.locum.config;
+package com.locum.config;
 
 
 import java.util.Collections;
@@ -60,4 +60,3 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 }
-*/

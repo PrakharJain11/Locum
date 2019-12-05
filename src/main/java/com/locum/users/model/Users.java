@@ -1,21 +1,40 @@
 package com.locum.users.model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.locum.users.validation.UniqueMobileNumber;
 
 @Entity
 @Table(name = "Users")
-public class Users {
+public class Users implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@GeneratedValue(generator="system-uuid")
 	@GenericGenerator(name="system-uuid", strategy = "uuid")
 	public String ID;
@@ -25,22 +44,27 @@ public class Users {
 	
 	
 	@NotNull
-	@Column(unique = true)
+	@Column(name = "contact_number", unique = true)
 	@UniqueMobileNumber(message = "Number Already exist")
+	@JsonIgnore
 	public String contactNumber;
 	
+	@Column(name = "user_Type")
 	@NotNull
-	public String user_Type;
+	public String userType;
 	
+	@Column(name = "salary")
 	public double salary;
 	
+	@Column(name = "doctor_degree")
 	@NotNull
-	public String doctor_Degree;
+	public String doctorDegree;
 	
+	@Column(name = "doctor_specialization")
 	@NotNull
-	public String doctor_Specialization;
+	public String doctorSpecialization;
 	
-	@NotNull
+	/*@NotNull
 	public String address;
 	
 	@NotNull
@@ -54,12 +78,13 @@ public class Users {
 	
 	@NotNull
 	public String country;
-	
+*/	
 	@NotNull
 	public String email;
 	
 	@NotNull
 	public String password;
+	
 	
 	public String getID() {
 		return ID;
@@ -80,10 +105,10 @@ public class Users {
 		this.contactNumber = contact_Number;
 	}
 	public String getUser_Type() {
-		return user_Type;
+		return userType;
 	}
 	public void setUser_Type(String user_Type) {
-		this.user_Type = user_Type;
+		this.userType = user_Type;
 	}
 	public double getSalary() {
 		return salary;
@@ -92,46 +117,16 @@ public class Users {
 		this.salary = salary;
 	}
 	public String getDoctor_Degree() {
-		return doctor_Degree;
+		return doctorDegree;
 	}
 	public void setDoctor_Degree(String doctor_Degree) {
-		this.doctor_Degree = doctor_Degree;
+		this.doctorDegree = doctor_Degree;
 	}
 	public String getDoctor_Specialization() {
-		return doctor_Specialization;
+		return doctorSpecialization;
 	}
 	public void setDoctor_Specialization(String doctor_Specialization) {
-		this.doctor_Specialization = doctor_Specialization;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getCity() {
-		return city;
-	}
-	public void setCity(String city) {
-		this.city = city;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public int getPIN() {
-		return PIN;
-	}
-	public void setPIN(int pIN) {
-		PIN = pIN;
-	}
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
+		this.doctorSpecialization = doctor_Specialization;
 	}
 	public String getEmail() {
 		return email;
@@ -145,6 +140,18 @@ public class Users {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "contact_number", referencedColumnName = "contact_number")
+	List<UsersAddress> userAddress = new ArrayList<>();
+
+	public List<UsersAddress> getUserAddress() {
+		return userAddress;
+	}
+	public void setUserAddress(List<UsersAddress> userAddress) {
+		this.userAddress = userAddress;
+	} 
+	
 	
 	 
 }

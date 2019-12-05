@@ -12,4 +12,7 @@ public interface UsersRepository extends JpaRepository<Users, Serializable> {
 	
 	
 	Users findByContactNumber(String number);
+	Users findOneByname(String name);
+	
+	
 }

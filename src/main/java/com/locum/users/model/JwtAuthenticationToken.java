@@ -1,4 +1,4 @@
-/*package com.locum.users.model;
+package com.locum.users.model;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
@@ -30,4 +30,3 @@ public class JwtAuthenticationToken extends UsernamePasswordAuthenticationToken{
         return null;
     }
 }
-*/

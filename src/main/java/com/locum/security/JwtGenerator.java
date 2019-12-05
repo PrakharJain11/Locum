@@ -1,4 +1,4 @@
-/*package com.locum.security;
+package com.locum.security;
 
 
 import org.springframework.stereotype.Component;
@@ -17,7 +17,7 @@ public class JwtGenerator {
         Claims claims = Jwts.claims()
                 .setSubject(jwtUser.getContact_Number());
         claims.put("userId", String.valueOf(jwtUser.getID()));
-        //claims.put("role", jwtUser.getRole());
+        claims.put("role", jwtUser.getUser_Type());
 
 
         return Jwts.builder()
@@ -26,4 +26,3 @@ public class JwtGenerator {
                 .compact();
     }
 }
-*/

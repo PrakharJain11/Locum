@@ -1,4 +1,4 @@
-/*package com.locum.security;
+package com.locum.security;
 
 import java.util.List;
 
@@ -51,4 +51,3 @@ public class JwtAuthenticationProvider extends AbstractUserDetailsAuthentication
     }
 
 }
-*/
