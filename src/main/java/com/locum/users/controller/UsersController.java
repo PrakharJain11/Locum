@@ -21,6 +21,7 @@ import com.locum.users.model.Users;
 import com.locum.users.service.LocumVacancyService;
 import com.locum.users.service.UsersService;
 
+/*User Controller */
 @RestController
 public class UsersController {
 	
