@@ -12,11 +12,11 @@ import javax.validation.constraints.NotNull;
 //import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name="locumVacancyInfo")
+@Table(name="locum_Vacancy_Info")
 public class LocumVacancyInfo {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	//@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private long id;
 	
 	@NotNull

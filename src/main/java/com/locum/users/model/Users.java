@@ -35,9 +35,11 @@ public class Users implements Serializable{
 
 	@Id
 	//@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@GeneratedValue(generator="system-uuid")
-	@GenericGenerator(name="system-uuid", strategy = "uuid")
-	public String ID;
+	/*
+	 * @GeneratedValue( strategy= GenerationType.AUTO, generator="native" )
+	 * 
+	 * @GenericGenerator( name = "native", strategy = "native" )
+	 */	public String ID;
 	
 	@NotNull
 	public String name;
@@ -140,6 +142,7 @@ public class Users implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "contact_number", referencedColumnName = "contact_number")

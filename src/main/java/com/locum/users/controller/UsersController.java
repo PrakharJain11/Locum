@@ -59,8 +59,9 @@ public class UsersController {
 		System.out.println("<------------------------------------------------------------------------------------------>");
 		response.setHeader("Token", jwtGenerator.generate(user));
 		System.out.println("<------------------------------------------------------------------------------------------>");
-		System.out.println("Line 1:"+user.getUserAddress());
+		System.out.println("Line 1:-------->"+user.getUserAddress());
 		//System.out.println("Line 1:"+user.getUserAddress().);
+		System.out.println();
 		
 		Users savedUser = userService.addUser(user);
 		
@@ -106,10 +107,16 @@ public class UsersController {
 		
 		DocInfo docInfo = restTemplate.getForObject("http://localhost:8082/getDoc", DocInfo.class);
 		
-		System.out.println(docInfo.name);
+		System.out.println("DocInfo---------------------->"+docInfo.name);
 		
 		System.out.println("userID: "+userId);
 		return locumVacancyService.getLocumVacancyInfo(userId);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET, value="/getAllVacancies")
+	public List<LocumVacancyInfo> getAllVacancies()
+	{
+		return locumVacancyService.getAllVacancies();
 	}
 		
 }

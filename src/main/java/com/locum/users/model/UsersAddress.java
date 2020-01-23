@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -21,9 +22,12 @@ public class UsersAddress implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(generator="system-uuid1")
-	@GenericGenerator(name="system-uuid1", strategy = "uuid")
-	public String Id;
+	/*
+	 * @GeneratedValue( strategy= GenerationType.AUTO, generator="native" )
+	 * 
+	 * @GenericGenerator( name = "native", strategy = "native" )
+	 */
+	public String ID;
 	
 	@NotNull
 	public String addLine1;

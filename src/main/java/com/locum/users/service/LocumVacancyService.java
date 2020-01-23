@@ -28,4 +28,9 @@ public class LocumVacancyService {
 		return locumVacancyRepository.findByUserID(userId);
 	}
 	
+	public List<LocumVacancyInfo> getAllVacancies()
+	{
+		return locumVacancyRepository.findAll();
+	}
+	
 }

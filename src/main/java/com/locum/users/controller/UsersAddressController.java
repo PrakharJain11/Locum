@@ -1,5 +1,10 @@
 package com.locum.users.controller;
 
-public class UsersAddressController {
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+public class UsersAddressController {
+	
+	
+	
 }
